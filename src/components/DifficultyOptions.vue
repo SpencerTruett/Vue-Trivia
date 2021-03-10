@@ -1,14 +1,21 @@
 <template>
   <div>
-    <button>Easy</button>
-    <button>Medium</button>
-    <button>Hard</button>
-    <button>Show All</button>
+    <button :class="{ active: difficulty === 'easy' }" @click="selectDifficulty('easy')">Easy</button>
+    <button :class="{ active: difficulty === 'medium' }" @click="selectDifficulty('medium')">Medium</button>
+    <button :class="{ active: difficulty === 'hard' }" @click="selectDifficulty('hard')">Hard</button>
+    <button :class="{ active: difficulty === 'all' }" @click="selectDifficulty('all')">Show All</button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["difficulty"],
+  methods: {
+    selectDifficulty(difficulty) {
+      this.$emit("difficultyHasChanged", difficulty);
+    }
+  }
+};
 </script>
 
 <style scoped>

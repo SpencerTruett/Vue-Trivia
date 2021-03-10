@@ -2,7 +2,10 @@
   <div>
     <h1 class="title">STAR WARS TRIVIA</h1>
     <div>
-      <DifficultyOptions />
+      <DifficultyOptions
+        :difficulty="selectedDifficulty"
+        @difficultyHasChanged="handleDifficultyChange"
+      />
     </div>
     <div class="questions">
       <div v-for="card in trivia" :key="card.id">
@@ -21,13 +24,17 @@ export default {
   components: { FlashCard, DifficultyOptions },
   data() {
     return {
-      trivia: [...trivia]
+      trivia: [...trivia],
+      selectedDifficulty: "all"
     };
   },
 
   methods: {
     handleToggle(card) {
       card.answerShown = !card.answerShown;
+    },
+    handleDifficultyChange(difficulty) {
+      this.selectedDifficulty = difficulty;
     }
   }
 };
