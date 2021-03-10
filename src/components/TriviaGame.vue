@@ -1,6 +1,9 @@
 <template>
   <div>
     <h1 class="title">STAR WARS TRIVIA</h1>
+    <div>
+      <DifficultyOptions />
+    </div>
     <div class="questions">
       <div v-for="card in trivia" :key="card.id">
         <FlashCard :card="card" @toggle="handleToggle" />
@@ -12,9 +15,10 @@
 <script>
 import trivia from "../trivia";
 import FlashCard from "./FlashCard";
+import DifficultyOptions from "./DifficultyOptions";
 
 export default {
-  components: { FlashCard },
+  components: { FlashCard, DifficultyOptions },
   data() {
     return {
       trivia: [...trivia]
