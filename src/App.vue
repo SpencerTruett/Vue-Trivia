@@ -16,6 +16,7 @@ export default {
 
 <style>
 body {
-  background-color: #6098cf;
+  background-image: url("https://cdn.wallpapersafari.com/1/97/co341S.jpg");
+  background-attachment: fixed;
 }
 </style>
