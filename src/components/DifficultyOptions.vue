@@ -20,8 +20,9 @@ export default {
 
 <style scoped>
 button {
-  border: 5px solid black;
-  color: white;
+  background-color: transparent;
+  text-shadow: -1px 0 #1d91f2, 0 1px #1d91f2, 1px 0 #1d91f2, 0 -1px #1d91f2;
+  color: black;
   padding: 15px 20px;
   text-align: center;
   text-decoration: none;
@@ -32,7 +33,8 @@ button {
   font-weight: bold;
 }
 button.active {
-  background-color: goldenrod;
+  background-color: transparent;
+  text-shadow: -1px 0 red, 0 1px red, 1px 0 red, 0 -1px red;
   color: black;
 }
 </style>

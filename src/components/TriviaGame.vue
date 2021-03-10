@@ -1,12 +1,17 @@
 <template>
   <div>
     <h1 class="title">STAR WARS TRIVIA</h1>
-    <button @click="hideAll" class="flat-button">HIDE ALL</button>
-    <div>
-      <DifficultyOptions
-        :difficulty="selectedDifficulty"
-        @difficultyHasChanged="handleDifficultyChange"
-      />
+    <div class="buttonColumn">
+      <div class="buttonRow">
+        <button @click="hideAll" class="flat-button">HIDE ALL</button>
+        <button @click="reset" class="flat-button">RESET</button>
+      </div>
+      <div class="buttonRow">
+        <DifficultyOptions
+          :difficulty="selectedDifficulty"
+          @difficultyHasChanged="handleDifficultyChange"
+        />
+      </div>
     </div>
     <div class="questions">
       <div v-for="card in displayedTrivia" :key="card.id">
@@ -39,6 +44,10 @@ export default {
     },
     hideAll() {
       this.trivia.forEach(t => (t.answerShown = false));
+    },
+    reset() {
+      this.selectedDifficulty = "all";
+      this.questions.forEach(t => (t.answerShown = false));
     }
   },
 
@@ -60,6 +69,19 @@ export default {
   font-size: 80px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
+
+.buttonColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .questions {
   display: flex;
   flex-direction: row;
