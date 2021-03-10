@@ -1,9 +1,9 @@
 <template>
-  <div class="card">
+  <div class="card" :class="{ flipped: card.answerShown }">
     <div class="card-inner">
       <div class="question">
         <h4>{{ card.question }}</h4>
-        <button>Answer</button>
+        <button @click="handleClick">Answer</button>
       </div>
       <div class="answer">
         <h4>{{ card.answer }}</h4>
@@ -14,7 +14,13 @@
 
 <script>
 export default {
-  props: ["card"]
+  props: ["card"],
+
+  methods: {
+    handleClick() {
+      this.$emit("toggle", this.card);
+    }
+  }
 };
 </script>
 
@@ -35,7 +41,6 @@ button {
   background-color: transparent;
   width: 300px;
   height: 200px;
-  border: 1px solid goldenrod;
   perspective: 1000px;
   margin-top: 20px;
   font-size: 20px;
@@ -61,6 +66,7 @@ button {
 .question {
   background-color: transparent;
   color: goldenrod;
+  border: 1px solid goldenrod;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 60px;
@@ -70,6 +76,10 @@ button {
 .answer {
   background-color: goldenrod;
   color: black;
+  transform: rotateY(180deg);
+}
+
+.flipped .card-inner {
   transform: rotateY(180deg);
 }
 </style>

@@ -3,7 +3,7 @@
     <h1 class="title">STAR WARS TRIVIA</h1>
     <div class="questions">
       <div v-for="card in trivia" :key="card.id">
-        <FlashCard :card="card" />
+        <FlashCard :card="card" @toggle="handleToggle" />
       </div>
     </div>
   </div>
@@ -19,6 +19,12 @@ export default {
     return {
       trivia: [...trivia]
     };
+  },
+
+  methods: {
+    handleToggle(card) {
+      card.answerShown = !card.answerShown;
+    }
   }
 };
 </script>
