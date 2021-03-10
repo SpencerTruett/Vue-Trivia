@@ -3,10 +3,11 @@
     <div class="card-inner">
       <div class="question">
         <h4>{{ card.question }}</h4>
-        <button @click="handleClick">Answer</button>
+        <button @click="handleClick">Show Answer</button>
       </div>
       <div class="answer">
         <h4>{{ card.answer }}</h4>
+        <button @click="handleClick">Show Question</button>
       </div>
     </div>
   </div>
@@ -33,8 +34,9 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .card {
@@ -54,7 +56,6 @@ button {
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
-
 .question,
 .answer {
   position: absolute;
@@ -74,9 +75,15 @@ button {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .answer {
-  background-color: goldenrod;
-  color: black;
+  background-color: transparent;
+  color: goldenrod;
   transform: rotateY(180deg);
+  border: 1px solid goldenrod;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 60px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .flipped .card-inner {
