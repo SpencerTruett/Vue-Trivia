@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1 class="title">STAR WARS TRIVIA</h1>
+    <button @click="hideAll" class="flat-button">HIDE ALL</button>
     <div>
       <DifficultyOptions
         :difficulty="selectedDifficulty"
@@ -35,6 +36,9 @@ export default {
     },
     handleDifficultyChange(difficulty) {
       this.selectedDifficulty = difficulty;
+    },
+    hideAll() {
+      this.trivia.forEach(t => (t.answerShown = false));
     }
   },
 
