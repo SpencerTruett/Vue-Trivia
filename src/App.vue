@@ -1,7 +1,17 @@
-<template></template>
+<template>
+  <div>
+    <TriviaGame />
+  </div>
+</template>
 
 <script>
-export default {};
+import TriviaGame from "./components/TriviaGame";
+export default {
+  name: "App",
+  components: {
+    TriviaGame
+  }
+};
 </script>
 
 <style>
