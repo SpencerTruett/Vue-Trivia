@@ -8,7 +8,7 @@
       />
     </div>
     <div class="questions">
-      <div v-for="card in trivia" :key="card.id">
+      <div v-for="card in displayedTrivia" :key="card.id">
         <FlashCard :card="card" @toggle="handleToggle" />
       </div>
     </div>
@@ -35,6 +35,15 @@ export default {
     },
     handleDifficultyChange(difficulty) {
       this.selectedDifficulty = difficulty;
+    }
+  },
+
+  computed: {
+    displayedTrivia() {
+      if (this.selectedDifficulty === "all") {
+        return this.trivia;
+      }
+      return this.trivia.filter(t => t.difficulty === this.selectedDifficulty);
     }
   }
 };

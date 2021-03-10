@@ -46,6 +46,7 @@ button {
   perspective: 1000px;
   margin-top: 20px;
   font-size: 20px;
+  padding: 1px;
 }
 
 .card-inner {
