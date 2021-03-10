@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { trivia } from "../trivia";
+import trivia from "../trivia";
 import FlashCard from "./FlashCard";
 
 export default {
